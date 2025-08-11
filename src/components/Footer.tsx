@@ -4,8 +4,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/ChanukaHasaranga", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/chanuka-hasaranga/", label: "LinkedIn" },
     { icon: Mail, href: "#contact", label: "Email" },
   ];
 
@@ -42,9 +42,8 @@ const Footer = () => {
           {/* Copyright */}
           <div className="mt-8 pt-8 border-t border-border text-center">
             <p className="text-muted-foreground text-sm flex items-center justify-center space-x-1">
-              <span>© {currentYear} CHANUKA. Made with</span>
-              <Heart className="h-4 w-4 text-primary animate-pulse" />
-              <span>and lots of coffee.</span>
+              <span>© Copyright {currentYear} CHANUKA</span>
+              <span>All Rights Reserved.</span>
             </p>
           </div>
         </div>

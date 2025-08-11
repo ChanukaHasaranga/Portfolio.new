@@ -31,19 +31,19 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "hello@CHANUKA.xyz",
-      href: "mailto:hello@CHANUKA.xyz"
+      value: "chanukahasaranga@gmail.com",
+      href: "mailto:chanukahasaranga@gmail.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "+94761003067",
+      href: "tel:+94761003067"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Colombo, SL",
       href: "#"
     }
   ];
