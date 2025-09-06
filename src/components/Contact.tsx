@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,25 +6,42 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser"; // npm install @emailjs/browser
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formRef.current) return;
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+
+    try {
+      await emailjs.sendForm(
+        "service_l452jkq",   // get from EmailJS dashboard
+        "template_b9i1wnn",  // get from EmailJS dashboard
+        formRef.current,
+        "ggFn1ieXtedRLTrkJ"    // public key from EmailJS
+      );
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      formRef.current.reset();
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Failed to send message",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -32,20 +49,20 @@ const Contact = () => {
       icon: Mail,
       label: "Email",
       value: "chanukahasaranga@gmail.com",
-      href: "mailto:chanukahasaranga@gmail.com"
+      href: "mailto:chanukahasaranga@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+94761003067",
-      href: "tel:+94761003067"
+      href: "tel:+94761003067",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Colombo, SL",
-      href: "#"
-    }
+      href: "#",
+    },
   ];
 
   return (
@@ -58,7 +75,7 @@ const Contact = () => {
               Let's Connect
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Have a project in mind or want to collaborate? I'd love to hear from you. 
+              Have a project in mind or want to collaborate? I'd love to hear from you.
               Let's build something amazing together.
             </p>
           </div>
@@ -69,49 +86,49 @@ const Contact = () => {
               <h3 className="text-2xl font-display font-bold text-card-foreground mb-6">
                 Send a Message
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-foreground">Name</Label>
-                    <Input 
-                      id="name" 
+                    <Input
+                      id="name"
                       name="name"
-                      required 
+                      required
                       className="bg-input border-border focus:border-primary"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-foreground">Email</Label>
-                    <Input 
-                      id="email" 
+                    <Input
+                      id="email"
                       name="email"
-                      type="email" 
-                      required 
+                      type="email"
+                      required
                       className="bg-input border-border focus:border-primary"
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-foreground">Subject</Label>
-                  <Input 
-                    id="subject" 
+                  <Input
+                    id="subject"
                     name="subject"
-                    required 
+                    required
                     className="bg-input border-border focus:border-primary"
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-foreground">Message</Label>
-                  <Textarea 
-                    id="message" 
+                  <Textarea
+                    id="message"
                     name="message"
-                    rows={5} 
-                    required 
+                    rows={5}
+                    required
                     className="bg-input border-border focus:border-primary resize-none"
                   />
                 </div>
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-neon font-mono font-bold"
                 >
@@ -134,8 +151,8 @@ const Contact = () => {
                   Get in Touch
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  I'm always open to discussing new opportunities, creative projects, 
-                  or just having a chat about technology and innovation. Feel free to 
+                  I'm always open to discussing new opportunities, creative projects,
+                  or just having a chat about technology and innovation. Feel free to
                   reach out through any of the channels below.
                 </p>
               </div>
@@ -143,8 +160,8 @@ const Contact = () => {
               {/* Contact Info Cards */}
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
-                  <Card 
-                    key={info.label} 
+                  <Card
+                    key={info.label}
                     className="p-6 bg-card border-primary/20 hover:border-primary/50 transition-all duration-300"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
@@ -154,7 +171,7 @@ const Contact = () => {
                         <p className="text-sm font-mono text-muted-foreground">
                           {info.label}
                         </p>
-                        <a 
+                        <a
                           href={info.href}
                           className="text-card-foreground hover:text-primary transition-colors font-medium"
                         >

@@ -5,13 +5,11 @@ import { Code, Smartphone, Palette, Zap } from "lucide-react";
 const About = () => {
   const skills = [
     // Mobile Development
-    "React Native", "Flutter", "Swift", "Kotlin", "Java",
-    // Web Development  
-    "React", "TypeScript", "JavaScript", "HTML5", "CSS3",
+    "Flutter", "Java",
     // Backend Technologies
     "Spring Boot", "Node.js", ".NET", "Python", "C#", "C++", "C",
     // Databases
-    "Firebase", "MongoDB", "MySQL", "SQL", "PostgreSQL", "Redis",
+    "Firebase", "MongoDB", "MySQL", "SQL", "PostgreSQL",
     // DevOps & Tools
     "Docker", "CI/CD Pipelines", "AWS", "Azure", "Git", "Jenkins",
     // Other
@@ -26,7 +24,7 @@ const About = () => {
     },
     {
       icon: Code,
-      title: "Full-Stack Development", 
+      title: "Full-Stack Development",
       description: "End-to-end web applications with React, Spring Boot, .NET, and modern databases like MongoDB and MySQL."
     },
     {
@@ -51,13 +49,23 @@ const About = () => {
               About Me
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Passionate developer with 5+ years of experience building innovative applications 
+              Passionate developer with 5+ years of experience building innovative applications
               that solve real-world problems and create meaningful user experiences.
             </p>
           </div>
 
           {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 mb-16 items-center">
+              {/* Profile Image */}
+  <div className="flex justify-center">
+    <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+      <img
+        src="/favicon.ico"
+        alt="Profile"
+        className="w-full h-full rounded-full object-cover animate-shake-float"
+      />
+    </div>
+  </div>
             {/* Bio */}
             <div className="space-y-6">
               <h3 className="text-2xl font-display font-bold text-foreground mb-4">
@@ -65,39 +73,41 @@ const About = () => {
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I'm a full-stack developer specializing in mobile app development with expertise 
-                  across multiple platforms and technologies. From Flutter and React Native to 
+                  I'm a full-stack developer specializing in mobile app development with expertise
+                  across multiple platforms and technologies. From Flutter and React Native to
                   native iOS and Android development, I create robust applications that scale.
                 </p>
                 <p>
-                  My backend expertise spans Spring Boot, .NET, Python, and Node.js, while I 
-                  leverage modern DevOps practices with Docker, CI/CD pipelines, and cloud 
+                  My backend expertise spans Spring Boot, .NET, Python, and Node.js, while I
+                  leverage modern DevOps practices with Docker, CI/CD pipelines, and cloud
                   infrastructure to ensure reliable, scalable deployments.
                 </p>
                 <p>
-                  Whether it's building microservices with Java and C#, managing databases with 
-                  MongoDB and MySQL, or creating seamless user experiences, I bring a comprehensive 
+                  Whether it's building microservices with Java and C#, managing databases with
+                  MongoDB and MySQL, or creating seamless user experiences, I bring a comprehensive
                   approach to every project.
                 </p>
               </div>
             </div>
 
-            {/* Skills */}
-            <div>
-              <h3 className="text-2xl font-display font-bold text-foreground mb-6">
-                Tech Stack & Expertise
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-                {skills.map((skill) => (
-                  <Badge 
-                    key={skill} 
-                    variant="secondary" 
-                    className="bg-card text-card-foreground border-primary/20 hover:border-primary transition-colors"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
+
+          </div>
+
+          {/* Skills */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-display font-bold text-foreground mb-6">
+              Tech Stack & Expertise
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+              {skills.map((skill) => (
+                <Badge
+                  key={skill}
+                  variant="secondary"
+                  className="bg-card text-card-foreground border-primary/20 hover:border-primary transition-colors"
+                >
+                  {skill}
+                </Badge>
+              ))}
             </div>
           </div>
 
@@ -108,8 +118,8 @@ const About = () => {
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((service, index) => (
-                <Card 
-                  key={service.title} 
+                <Card
+                  key={service.title}
                   className="p-6 bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-glow"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
