@@ -4,14 +4,26 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 
 const Projects = () => {
+  const handleLiveDemo = (url) => {
+    if (!url) return;
+
+    // Check if it's a PDF
+    if (url.toLowerCase().endsWith(".pdf")) {
+      // Open PDF in a new tab
+      window.open(url, "_blank");
+    } else {
+      // Open normal link
+      window.open(url, "_blank");
+    }
+  };
+
   const projects = [
     {
-      title: "EcoTrack Mobile",
-      description: "Cross-platform sustainability app built with Flutter and Spring Boot backend, featuring AI-powered carbon footprint analysis and real-time environmental data.",
-      image: "/api/placeholder/400/250",
-      technologies: ["Flutter", "Spring Boot", "Firebase", "Python AI", "Docker"],
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "AppexLove - DatingApp",
+      description: "A Flutter-based dating app with Firebase and Spring Boot (MySQL) backend. Users can create profiles, match based on interests, chat, and call. Premium features via Stripe include viewing more profiles and exclusive access. Includes an Ambassador section to facilitate connections, manage matches, and chat with users. Features Google Maps integration, filters, and a messaging system showing chat history, profile pictures, and timestamps. Riverpod is used for state management.",
+      image: "/sample 01_compressed_page-0003 - Copy.jpg",
+      technologies: ["Flutter", "Spring Boot", "Firebase", "MySQL", "Stripe", "Team"],
+      liveUrl: "/sample 01_compressed.pdf",
       featured: true
     },
     {
@@ -74,7 +86,7 @@ const Projects = () => {
               Featured Work
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A showcase of applications I've built, from mobile apps to web platforms, 
+              A showcase of applications I've built, from mobile apps to web platforms,
               each crafted with attention to detail and user experience.
             </p>
           </div>
@@ -86,17 +98,23 @@ const Projects = () => {
             </h3>
             <div className="grid lg:grid-cols-2 gap-8">
               {featuredProjects.map((project, index) => (
-                <Card 
-                  key={project.title} 
+                <Card
+                  key={project.title}
                   className="group overflow-hidden bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-neon-strong"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <div className="aspect-video bg-muted relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-6xl font-display font-bold text-primary/30">
-                        {project.title.slice(0, 2)}
+                      <div className="aspect-video relative overflow-hidden rounded-md">
+
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
                       </div>
+
                     </div>
                   </div>
                   <div className="p-6">
@@ -108,9 +126,9 @@ const Projects = () => {
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.map((tech) => (
-                        <Badge 
-                          key={tech} 
-                          variant="secondary" 
+                        <Badge
+                          key={tech}
+                          variant="secondary"
                           className="bg-secondary text-secondary-foreground"
                         >
                           {tech}
@@ -118,22 +136,28 @@ const Projects = () => {
                       ))}
                     </div>
                     <div className="flex gap-2">
-                      <Button 
-                        size="sm" 
+                      <Button
+                        size="sm"
                         className="bg-primary text-primary-foreground hover:bg-primary/90"
+                        onClick={() => handleLiveDemo(project.liveUrl)}
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Live Demo
                       </Button>
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                      >
-                        <Github className="h-4 w-4 mr-2" />
-                        Code
-                      </Button>
+
+
+                      {project.githubUrl ? (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                        >
+                          <Github className="h-4 w-4 mr-2" />
+                          Code
+                        </Button>
+                      ) : null}
                     </div>
+
                   </div>
                 </Card>
               ))}
@@ -147,8 +171,8 @@ const Projects = () => {
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {otherProjects.map((project, index) => (
-                <Card 
-                  key={project.title} 
+                <Card
+                  key={project.title}
                   className="group p-6 bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-glow"
                   style={{ animationDelay: `${(index + 2) * 100}ms` }}
                 >
@@ -160,9 +184,9 @@ const Projects = () => {
                   </p>
                   <div className="flex flex-wrap gap-1 mb-4">
                     {project.technologies.slice(0, 3).map((tech) => (
-                      <Badge 
-                        key={tech} 
-                        variant="secondary" 
+                      <Badge
+                        key={tech}
+                        variant="secondary"
                         className="text-xs bg-secondary/50 text-secondary-foreground"
                       >
                         {tech}
@@ -192,6 +216,7 @@ const Projects = () => {
       </div>
     </section>
   );
+
 };
 
 export default Projects;
