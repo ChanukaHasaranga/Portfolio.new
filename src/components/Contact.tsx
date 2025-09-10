@@ -111,8 +111,8 @@ const Contact = () => {
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-foreground">Subject</Label>
                   <Input
-                    id="subject"
-                    name="subject"
+                    id="title"
+                    name="title"
                     required
                     className="bg-input border-border focus:border-primary"
                   />

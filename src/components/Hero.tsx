@@ -27,7 +27,7 @@ const Hero = () => {
           {/* Subtitle */}
           <div className="space-y-4 mb-12 animate-fade-in-up">
             <p className="text-xl md:text-2xl font-mono text-secondary-foreground">
-              App Developer & Creative Technologist
+              Software Engineer & Creative Technologist
             </p>
             <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Crafting innovative mobile and web applications with cutting-edge technology. 

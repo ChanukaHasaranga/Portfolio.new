@@ -20,7 +20,7 @@ const Footer = () => {
                 CHANUKA
               </div>
               <p className="text-muted-foreground font-mono text-sm">
-                App Developer & Creative Technologist
+                Software Engineer & Creative Technologist
               </p>
             </div>
 
