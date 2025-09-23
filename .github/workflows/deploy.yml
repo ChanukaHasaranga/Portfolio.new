@@ -3,7 +3,7 @@ name: Deploy Portfolio
 on:
   push:
     branches:
-      - main
+      - main   # trigger on pushes to main
 
 jobs:
   build-and-deploy:
