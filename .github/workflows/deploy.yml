@@ -18,16 +18,11 @@ jobs:
           node-version: 20
           cache: "npm"
 
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Install Vite globally
-        run: npm install -g vite
+      - name: Install dependencies (skip optional)
+        run: npm ci --ignore-optional
 
       - name: Build
-        run: vite build
-        env:
-          ROLLUP_PURE_JS: true
+        run: npx vite build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
