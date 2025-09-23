@@ -21,10 +21,13 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
+      - name: Install Vite globally
+        run: npm install -g vite
+
       - name: Build
-        run: npx vite build
+        run: vite build
         env:
-          ROLLUP_PURE_JS: true   # <--- This forces Rollup to use JS fallback
+          ROLLUP_PURE_JS: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
