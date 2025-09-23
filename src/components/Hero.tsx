@@ -23,32 +23,36 @@ const Hero = () => {
               CHANUKA
             </span>
           </h1>
-          
+
           {/* Subtitle */}
           <div className="space-y-4 mb-12 animate-fade-in-up">
             <p className="text-xl md:text-2xl font-mono text-secondary-foreground">
               Software Engineer & Creative Technologist
             </p>
             <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Crafting innovative mobile and web applications with cutting-edge technology. 
+              Crafting mobile and web apps, backend services, and intelligent AI solutions with modern tech.
               Transforming ideas into digital experiences that matter.
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button 
+            <Button
               onClick={scrollToProjects}
               className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-neon font-mono font-bold px-8 py-3 text-lg"
             >
               View My Work
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              asChild
+              variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono px-8 py-3 text-lg"
             >
-              Download CV
+              <a href="/Chanuka_hasaranga-CV.pdf" download>
+                Download CV
+              </a>
             </Button>
+
           </div>
 
           {/* Social Links */}

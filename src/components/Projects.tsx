@@ -27,50 +27,62 @@ const Projects = () => {
       featured: true
     },
     {
-      title: "TaskFlow Enterprise",
-      description: "Enterprise project management platform with .NET Core backend, React frontend, and automated CI/CD deployment using Docker containers.",
-      image: "/api/placeholder/400/250",
-      technologies: [".NET Core", "React", "SQL Server", "Docker", "Azure DevOps"],
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Linkedin - CloneApp",
+      description: "A sleek LinkedIn-inspired mobile app built using MVVM architecture for clean separation of logic and UI. Implemented with Provider for efficient state management and included form validation for a secure and user-friendly signup experience. The app currently uses dummy data to simulate core features such as user profiles, feeds, and connections",
+      image: "/IMG_0901.JPG",
+      technologies: ["Flutter", "Individual"],
+      githubUrl: "https://github.com/ChanukaHasaranga/linkedin",
       featured: true
     },
     {
-      title: "HealthSync Mobile",
-      description: "Native iOS/Android health tracking app with C# backend API, MongoDB database, and machine learning insights for wellness optimization.",
+      title: "Parkinsons - Disease tracking App",
+      description: "Developed as a group project using MVC architecture, I worked on the frontend and API integration with Firebase for user authentication and signup. Implemented live voice recording with audio playback, integrated with a Python ML model to detect Parkinson’s indicators. Added Flutter localization to support both Sinhala and English. Users can view results, listen to recordings via an audio player, and export reports as PDFs. For doctors, a separate home page provides access to all users’ Parkinson’s reports with download capability.",
       image: "/api/placeholder/400/250",
-      technologies: ["Swift", "Kotlin", "C#", "MongoDB", "Python ML"],
-      liveUrl: "#",
-      githubUrl: "#",
+      technologies: ["Flutter", "Firebase", "Python ML", "Team"],
+      githubUrl: "https://github.com/ChanukaHasaranga/parkinsons_app",
       featured: false
     },
     {
-      title: "DevOps Dashboard",
-      description: "Comprehensive CI/CD monitoring platform built with Java Spring Boot, featuring automated deployment pipelines and real-time system metrics.",
+      title: "E-Commerce",
+      description: "I developed a responsive e-commerce app for both web and mobile. While the UI is a demo, all features are fully functional. The app uses Hive for local cart storage (persisting until app removal) and Firebase for item data. It includes features like adding items, cart price calculation, and checkout. I implemented widget, cart controller, and product detail tests, integrated CI/CD with GitHub, and followed Clean Architecture principles with Riverpod for state management.",
       image: "/api/placeholder/400/250",
-      technologies: ["Java", "Spring Boot", "Jenkins", "Docker", "MySQL"],
-      liveUrl: "#",
-      githubUrl: "#",
+      technologies: ["Flutter", "Firebase", "CI/CD", "Hive", "Local - Storage"],
+      githubUrl: "https://github.com/ChanukaHasaranga/E-Commerce",
       featured: false
     },
     {
-      title: "FinanceTracker Pro",
-      description: "React Native financial management app with microservices architecture, featuring secure Firebase authentication and real-time market data integration.",
+      title: "Nobel - Gaming App",
+      description: "Gaming app – Badge & Profile Page: Collaboratively developed the dynamic badge/profile page with automatic profile theme updates, real-time user rankings based on rewards, and a static time count consistent across users and reinstalls. Handled frontend development using flutter backend development using MySQL and Spring Boot.",
       image: "/api/placeholder/400/250",
-      technologies: ["React Native", "Microservices", "Firebase", "C++", "Redis"],
-      liveUrl: "#",
-      githubUrl: "#",
+      technologies: ["Flutter", "Spring Boot", "MySql", "Team",],
+      liveUrl: "https://www.linkedin.com/posts/chanuka-hasaranga_mobileappdevelopment-flutter-springboot-activity-7219531066171125760-mved?utm_source=share&utm_medium=member_desktop",
+      githubUrl: "https://github.com/ChanukaHasaranga/nobel_project",
       featured: false
     },
     {
-      title: "CloudSync Enterprise",
-      description: "Multi-platform data synchronization system built with .NET and Python, featuring automated CI/CD pipelines and cross-platform mobile clients.",
+      title: "User Account page Backend - ASP .NET",
+      description: "This is an ASP.NET Core-based backend application that provides user authentication and profile management features. It supports essential account operations such as sign-up, login, and updating user details. The application uses JWT (JSON Web Token) for secure authentication, ensuring that only authorized users can access protected resources. The backend is designed for easy deployment in standard server environments and is suitable for scalable and secure application architectures",
       image: "/api/placeholder/400/250",
-      technologies: ["C#", "Python", "PostgreSQL", "Azure", "Flutter"],
-      liveUrl: "#",
-      githubUrl: "#",
+      technologies: ["C#", "ASP .NET", "SQL Server", "JWT Token ", "Flutter"],
+      githubUrl: "https://github.com/ChanukaHasaranga/author",
       featured: false
-    }
+    },
+    {
+      title: "User Account page backend - SpringBoot",
+      description: "This is a Spring Boot-based backend application that provides user authentication and profile management features. It supports essential account operations such as sign up, login, and updating user details. The application uses JWT (JSON Web Token) for secure authentication, ensuring that only authorized users can access protected resources. Additionally, the backend is Dockerized, making it easy to deploy and run in any containerized environment. This setup is ideal for scalable and secure microservices architectures.",
+      image: "/api/placeholder/400/250",
+      technologies: ["Java", "Spring Boot", "Docker", "JWT Token ", "MySQL"],
+      githubUrl: "https://github.com/ChanukaHasaranga/Account-Page-Backend",
+      featured: false
+    },
+     {
+   title: "AgriLens Model",
+   description: "Detects plant nutrient deficiencies and diseases from leaf images.Classifies 18 classes including healthy, nutrient deficiencies, and diseases.Uses MobileNetV2, lightweight and accurate (97.8% test accuracy).Outputs predicted class and confidence, can be converted to .tflite for mobile apps.",
+   image: "/api/placeholder/400/250",
+   technologies: ["Python", "Machine Learning - MobileNetV2", "TensorFlow Lite", "TensorFlow / Keras",],
+   githubUrl: "https://github.com/ChanukaHasaranga/AgriLens_Modelr",
+   featured: false
+ },
   ];
 
   const featuredProjects = projects.filter(p => p.featured);
@@ -136,21 +148,24 @@ const Projects = () => {
                       ))}
                     </div>
                     <div className="flex gap-2">
-                      <Button
-                        size="sm"
-                        className="bg-primary text-primary-foreground hover:bg-primary/90"
-                        onClick={() => handleLiveDemo(project.liveUrl)}
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
-                      </Button>
-
+                      {project.liveUrl ? (
+                        <Button
+                          size="sm"
+                          className="bg-primary text-primary-foreground hover:bg-primary/90"
+                          onClick={() => handleLiveDemo(project.liveUrl)}
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      ) : null}
 
                       {project.githubUrl ? (
                         <Button
                           size="sm"
                           variant="outline"
                           className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                          onClick={() => window.open(project.githubUrl, "_blank")}
+
                         >
                           <Github className="h-4 w-4 mr-2" />
                           Code
@@ -199,21 +214,50 @@ const Projects = () => {
                     )}
                   </div>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="ghost" className="text-primary hover:text-primary-foreground hover:bg-primary">
-                      <ExternalLink className="h-3 w-3 mr-1" />
-                      Demo
-                    </Button>
-                    <Button size="sm" variant="ghost" className="text-primary hover:text-primary-foreground hover:bg-primary">
-                      <Github className="h-3 w-3 mr-1" />
-                      Code
-                    </Button>
+                    {project.liveUrl ? (
+
+                      <Button size="sm" variant="ghost" className="text-primary hover:text-primary-foreground hover:bg-primary"
+                        onClick={() => handleLiveDemo(project.liveUrl)}
+
+                      >
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        Demo
+                      </Button>
+                    ) : null}
+                    {project.githubUrl ? (
+
+                      <Button size="sm" variant="ghost" className="text-primary hover:text-primary-foreground hover:bg-primary"
+                        onClick={() => window.open(project.githubUrl, "_blank")}
+
+                      >
+                        <Github className="h-3 w-3 mr-1" />
+                        Code
+                      </Button>
+                    ) : null}
+
                   </div>
+
                 </Card>
               ))}
             </div>
+            <div className="text-center mt-12">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 flex items-center justify-center mx-auto"
+                onClick={() => window.open("https://github.com/ChanukaHasaranga?tab=repositories", "_blank")}
+              >
+                <Github className="h-5 w-5 mr-3 animate-bounce" />
+                View more on GitHub
+              </Button>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Explore all my projects and code repositories on GitHub
+              </p>
+            </div>
+
           </div>
         </div>
       </div>
+
     </section>
   );
 

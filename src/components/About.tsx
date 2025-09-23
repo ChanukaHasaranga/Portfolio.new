@@ -1,17 +1,17 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Smartphone, Palette, Zap } from "lucide-react";
+import { Code, Smartphone, Palette, Zap, Cpu } from "lucide-react";
 
 const About = () => {
   const skills = [
     // Mobile Development
-    "Flutter", "Java",
+    "Flutter",
     // Backend Technologies
-    "Spring Boot", "Node.js", ".NET", "Python", "C#", "C++", "C",
+    "Java", "C#", "C++", "C", "Python", "ASP .NET", "Spring Boot", "Node.js", "Machine Learning",
     // Databases
     "Firebase", "MongoDB", "MySQL", "SQL", "PostgreSQL",
     // DevOps & Tools
-    "Docker", "CI/CD Pipelines", "AWS", "Azure", "Git", "Jenkins",
+    "Docker", "CI/CD Pipelines", "AWS", "Azure", "Git",
     // Other
     "GraphQL", "REST APIs", "Microservices", "Agile"
   ];
@@ -20,12 +20,12 @@ const About = () => {
     {
       icon: Smartphone,
       title: "Mobile App Development",
-      description: "Native and cross-platform mobile apps using React Native, Flutter, Swift, and Kotlin with seamless user experiences."
+      description: "Native and cross-platform mobile apps using Flutter and Java with seamless user experiences."
     },
     {
       icon: Code,
-      title: "Full-Stack Development",
-      description: "End-to-end web applications with React, Spring Boot, .NET, and modern databases like MongoDB and MySQL."
+      title: "Backend Development",
+      description: "Developing robust backend systems and APIs with Spring Boot, ASP.NET, and Python, using databases like MySQL, MongoDB, SQL Server, and Firebase"
     },
     {
       icon: Palette,
@@ -33,9 +33,9 @@ const About = () => {
       description: "Automated deployment pipelines with Docker, containerization, and cloud infrastructure on AWS and Azure."
     },
     {
-      icon: Zap,
-      title: "System Architecture",
-      description: "Scalable microservices architecture with optimized performance using C#, Java, Python, and modern frameworks."
+      icon: Cpu,
+      title: "Python Machine Learning & Deep Learning",
+      description: "Building intelligent systems and models using Python, with expertise in machine learning, deep learning, and libraries like TensorFlow, PyTorch, and scikit-learn."
     }
   ];
 
@@ -56,16 +56,16 @@ const About = () => {
 
           {/* Main Content */}
           <div className="grid lg:grid-cols-2 gap-12 mb-16 items-center">
-              {/* Profile Image */}
-  <div className="flex justify-center">
-    <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-lg">
-      <img
-        src="/favicon.ico"
-        alt="Profile"
-        className="w-full h-full rounded-full object-cover animate-shake-float"
-      />
-    </div>
-  </div>
+            {/* Profile Image */}
+            <div className="flex justify-center">
+              <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+                <img
+                  src="/favicon.ico"
+                  alt="Profile"
+                  className="w-full h-full rounded-full object-cover animate-shake-float"
+                />
+              </div>
+            </div>
             {/* Bio */}
             <div className="space-y-6">
               <h3 className="text-2xl font-display font-bold text-foreground mb-4">
@@ -73,20 +73,18 @@ const About = () => {
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I'm a full-stack developer specializing in mobile app development with expertise
-                  across multiple platforms and technologies. From Flutter and React Native to
-                  native iOS and Android development, I create robust applications that scale.
+                  I'm a full-stack developer specializing in mobile app development, creating native and cross-platform apps with Flutter and Java that deliver seamless user experiences.
                 </p>
                 <p>
-                  My backend expertise spans Spring Boot, .NET, Python, and Node.js, while I
-                  leverage modern DevOps practices with Docker, CI/CD pipelines, and cloud
-                  infrastructure to ensure reliable, scalable deployments.
+                  On the backend, I build robust systems and APIs using Spring Boot, ASP.NET, and Python, managing databases like MySQL, MongoDB, SQL Server, and Firebase for reliable data-driven applications.
                 </p>
                 <p>
-                  Whether it's building microservices with Java and C#, managing databases with
-                  MongoDB and MySQL, or creating seamless user experiences, I bring a comprehensive
-                  approach to every project.
+                  I also implement DevOps practices, including Docker, CI/CD pipelines, and cloud infrastructure on AWS and Azure, ensuring smooth, scalable deployments.
                 </p>
+                <p>
+                  Additionally, I develop intelligent Python-based systems with machine learning and deep learning models, leveraging libraries like TensorFlow, PyTorch, and scikit-learn to create data-driven solutions.
+                </p>
+
               </div>
             </div>
 
