@@ -21,11 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Fix Vite permissions
-        run: chmod +x ./node_modules/.bin/vite
-
       - name: Build
         run: npx vite build
+        env:
+          ROLLUP_PURE_JS: true   # <--- This forces Rollup to use JS fallback
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
