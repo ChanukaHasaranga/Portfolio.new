@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18   # <-- Use Node 18 instead of 20
+          node-version: 18
           cache: "npm"
 
       - name: Install dependencies
@@ -23,6 +23,8 @@ jobs:
 
       - name: Build
         run: npx vite build
+        env:
+          ROLLUP_PURE_JS: true  # <-- Forces Rollup to use JS fallback
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
