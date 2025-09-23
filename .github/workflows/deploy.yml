@@ -3,7 +3,7 @@ name: Deploy Portfolio
 on:
   push:
     branches:
-      - main   # trigger on pushes to main
+      - main
 
 jobs:
   build-and-deploy:
@@ -18,12 +18,14 @@ jobs:
           node-version: 20
           cache: "npm"
 
-
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
+      - name: Fix Vite permissions
+        run: chmod +x ./node_modules/.bin/vite
+
       - name: Build
-        run: npm run build
+        run: npx vite build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
