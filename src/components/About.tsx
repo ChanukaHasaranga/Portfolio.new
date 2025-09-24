@@ -60,7 +60,7 @@ const About = () => {
             <div className="flex justify-center">
               <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-lg">
                 <img
-                  src="/favicon.ico"
+                  src="/Portfolio.new/favicon.ico"
                   alt="Profile"
                   className="w-full h-full rounded-full object-cover animate-shake-float"
                 />

@@ -21,15 +21,15 @@ const Projects = () => {
     {
       title: "AppexLove - DatingApp",
       description: "A Flutter-based dating app with Firebase and Spring Boot (MySQL) backend. Users can create profiles, match based on interests, chat, and call. Premium features via Stripe include viewing more profiles and exclusive access. Includes an Ambassador section to facilitate connections, manage matches, and chat with users. Features Google Maps integration, filters, and a messaging system showing chat history, profile pictures, and timestamps. Riverpod is used for state management.",
-      image: "/sample 01_compressed_page-0003 - Copy.jpg",
+      image: "/Portfolio.new/sample 01_compressed_page-0003 - Copy.jpg",
       technologies: ["Flutter", "Spring Boot", "Firebase", "MySQL", "Stripe", "Team"],
-      liveUrl: "/sample 01_compressed.pdf",
+      liveUrl: "/Portfolio.new/sample 01_compressed.pdf",
       featured: true
     },
     {
       title: "Linkedin - CloneApp",
       description: "A sleek LinkedIn-inspired mobile app built using MVVM architecture for clean separation of logic and UI. Implemented with Provider for efficient state management and included form validation for a secure and user-friendly signup experience. The app currently uses dummy data to simulate core features such as user profiles, feeds, and connections",
-      image: "/IMG_0901.JPG",
+      image: "/Portfolio.new/IMG_0901.JPG",
       technologies: ["Flutter", "Individual"],
       githubUrl: "https://github.com/ChanukaHasaranga/linkedin",
       featured: true
