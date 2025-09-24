@@ -48,7 +48,7 @@ const Hero = () => {
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono px-8 py-3 text-lg"
             >
-              <a href="/Chanuka_hasaranga-CV.pdf" download>
+              <a href="/Portfolio.new/Chanuka_CV_2.pdf" download>
                 Download CV
               </a>
             </Button>
