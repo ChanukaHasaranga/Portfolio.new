@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build || echo "Build failed - check logs above for errors"
+        run: npm run build || echo "Build failed - check logs above for error"
 
       - name: List contents of dist folder
         run: ls -la ./dist || echo "dist folder not found"
