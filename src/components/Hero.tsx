@@ -58,19 +58,36 @@ const Hero = () => {
           {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-12">
             {[
-              { icon: Github, href: "https://github.com/ChanukaHasaranga", label: "GitHub" },
-              { icon: Linkedin, href: "https://www.linkedin.com/in/chanuka-hasaranga/", label: "LinkedIn" },
-              { icon: Mail, href: "#contact", label: "Email" },
-            ].map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 p-2"
-                aria-label={label}
-              >
-                <Icon className="h-6 w-6" />
-              </a>
-            ))}
+  { icon: Github, href: "https://github.com/ChanukaHasaranga", label: "GitHub", external: true },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/chanuka-hasaranga/", label: "LinkedIn", external: true },
+  { icon: Mail, href: "#contact", label: "Contact", external: false },
+].map(({ icon: Icon, href, label, external }) =>
+  external ? (
+    <a
+      key={label}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-muted-foreground hover:text-primary transition-colors duration-300 p-2"
+      aria-label={label}
+    >
+      <Icon className="h-6 w-6" />
+    </a>
+  ) : (
+    <button
+      key={label}
+      onClick={() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }}
+      className="text-muted-foreground hover:text-primary transition-colors duration-300 p-2"
+      aria-label={label}
+    >
+      <Icon className="h-6 w-6" />
+    </button>
+  )
+)}
+
           </div>
 
           {/* Scroll Indicator */}
